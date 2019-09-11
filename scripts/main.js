@@ -35,25 +35,27 @@ input.addEventListener('keyup', function (event) {
 });
 
 /*
-let list = document.getElementById('list');
+This the previous code that I was using
+Left it here for shits and giggles
+
+let shoppingList = document.getElementById('list');
 
 function addToList() {
-    let item = document.getElementById('userInput').value;
+    let item = document.getElementById('input').value;
     let itemEntry = document.createElement('li');
 
-    let price = document.getElementById('itemPrice').value;
+    let itemPrice = document.getElementById('price').value;
     let priceEntry = document.createElement('li');
 
-    if (item.length >= 2 && price >= 0) {
+    if (item.length >= 1 && itemPrice >= 0) {
         itemEntry.appendChild(document.createTextNode(item));
-        list.appendChild(itemEntry);
-        priceEntry.appendChild(document.createTextNode(price));
-        list.appendChild(priceEntry);
+        shoppingList.appendChild(itemEntry);
+        priceEntry.appendChild(document.createTextNode(itemPrice));
+        shoppingList.appendChild(priceEntry);
     }
 
-    document.getElementById('userInput').value = '';
-    document.getElementById('itemPrice').value = '';
-    document.getElementById('userInput').focus();
+    document.getElementById('input').value = '';
+    document.getElementById('price').value = '';
+    document.getElementById('input').focus();
 }
-
 */
