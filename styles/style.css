@@ -1,0 +1,48 @@
+html {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+}
+
+body {
+    background-color: #eeeeee;
+    font-size: 20px;
+}
+
+h1, h2 {
+    color: black;
+}
+
+footer > p {
+    font-size: 16px;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+ul {
+    list-style-type: circle;
+}
+
+#newItemDetails {
+    line-height: 150%;
+}
+
+#shoppingList {
+    padding: 2px 20px;
+    font-size: 20px;
+    text-align: left;
+    border-style: double;
+    display: block;
+    margin: 20px auto;
+    width: 300px;
+    background-color: #fffd8f;
+}
+
+#shoppingList > p {
+    text-align: center;
+}
