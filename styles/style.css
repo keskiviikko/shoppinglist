@@ -1,3 +1,4 @@
+
 html {
     font-family: 'Playfair Display', serif;
     text-align: center;
@@ -29,6 +30,7 @@ a:hover {
 }
 
 #shoppingList {
+    font-family: 'Inconsolata', monospace;
     padding: 2px 20px;
     font-size: 20px;
     text-align: center;

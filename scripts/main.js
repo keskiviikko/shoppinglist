@@ -40,29 +40,3 @@ input.addEventListener('keyup', function (event) {
         document.getElementById('addBtn').click();
     }
 });
-
-/*
-This the previous code that I was using
-Left it here for shits and giggles
-
-let shoppingList = document.getElementById('list');
-
-function addToList() {
-    let item = document.getElementById('input').value;
-    let itemEntry = document.createElement('li');
-
-    let itemPrice = document.getElementById('price').value;
-    let priceEntry = document.createElement('li');
-
-    if (item.length >= 1 && itemPrice >= 0) {
-        itemEntry.appendChild(document.createTextNode(item));
-        shoppingList.appendChild(itemEntry);
-        priceEntry.appendChild(document.createTextNode(itemPrice));
-        shoppingList.appendChild(priceEntry);
-    }
-
-    document.getElementById('input').value = '';
-    document.getElementById('price').value = '';
-    document.getElementById('input').focus();
-}
-*/
