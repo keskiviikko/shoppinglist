@@ -9,8 +9,8 @@ userInput.focus();
 
 document.getElementById('addBtn').addEventListener('click', function () {
     let newItem = userInput.value.trim();
-    let newPrice = parseInt(itemPrice.value);
-    let newItemAndPrice = [newPrice, newItem];
+    let newPrice = parseFloat(itemPrice.value).toFixed(2);
+    let newItemAndPrice = [Number(newPrice), newItem];
 
     if (newItem && newPrice) {
         shoppingListArr.push(newItemAndPrice);
