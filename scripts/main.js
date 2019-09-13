@@ -1,36 +1,43 @@
 
 let shoppingList = document.getElementById('list');
-let userInput = document.getElementById('input');
-let itemPrice = document.getElementById('price');
+let userInput = document.getElementById('inputItem');
+let itemPrice = document.getElementById('inputPrice');
+
 let shoppingListArr = [];
 
-document.getElementById('add').addEventListener('click', function() {
+userInput.focus();
+
+document.getElementById('addBtn').addEventListener('click', function () {
     let newItem = userInput.value.trim();
-    let newPrice = itemPrice.value.trim();
-    let newItemAndPrice = [newItem, newPrice];
+    let newPrice = parseInt(itemPrice.value);
+    let newItemAndPrice = [newPrice, newItem];
 
     if (newItem && newPrice) {
         shoppingListArr.push(newItemAndPrice);
-        for (var i=0; shoppingListArr[i]; i++) {
+        for (var i = 0; shoppingListArr[i]; i++) {
             var liElement = document.createElement('li');
-            liElement.innerText = shoppingListArr[i] + '€';
+            liElement.innerText = newItem + ', ' + newPrice + '€';
         }
         shoppingList.appendChild(liElement);
     } else {
         alert('Kirjoita tarvitsemasi tuote ja hinta.');
     }
+
     userInput.value = '';
     itemPrice.value = '';
     userInput.focus();
 
-    console.log(shoppingListArr);
+    let sortedArray = shoppingListArr.sort(function (a, b) {
+        return a[0] - b[0];
+    });
+    console.log(sortedArray);
 });
 
-let input = document.getElementById('input');
+let input = document.getElementById('inputPrice');
 input.addEventListener('keyup', function (event) {
     if (event.keyCode === 13) {
         event.preventDefault();
-        document.getElementById('add').click();
+        document.getElementById('addBtn').click();
     }
 });
 

@@ -24,10 +24,6 @@ a:hover {
 	text-decoration: underline;
 }
 
-ul {
-    list-style-type: circle;
-}
-
 #newItemDetails {
     line-height: 150%;
 }
@@ -35,7 +31,7 @@ ul {
 #shoppingList {
     padding: 2px 20px;
     font-size: 20px;
-    text-align: left;
+    text-align: center;
     border-style: double;
     display: block;
     margin: 20px auto;
@@ -43,6 +39,10 @@ ul {
     background-color: #fffd8f;
 }
 
-#shoppingList > p {
-    text-align: center;
+#list {
+    text-align: left;
+}
+
+ul {
+    list-style: circle;
 }
