@@ -10,7 +10,8 @@ itemName.focus();
 document.getElementById('addBtn').addEventListener('click', function () {
     let newItem = itemName.value.trim();
     let newPrice = parseFloat(itemPrice.value).toFixed(2);
-    let newItemAndPrice = { item: newItem, price: Number(newPrice) };
+    newPrice = Number(newPrice);
+    let newItemAndPrice = { item: newItem, price: newPrice };
 
     if (newItem && newPrice >= 0) {
         shoppingListArr.push(newItemAndPrice);
@@ -37,10 +38,12 @@ document.getElementById('addBtn').addEventListener('click', function () {
 
     console.log(shoppingListArr);
 
+    /*
     let sortedByPriceArr = shoppingListArr.sort(function (a, b) {
         return a.price - b.price;
     });
-    //console.log(sortedByPriceArr);
+    console.log(sortedByPriceArr);
+    */
 });
 
 document.getElementById('sortByItemBtn').addEventListener('click', function () {
