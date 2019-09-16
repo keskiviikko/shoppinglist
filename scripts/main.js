@@ -10,27 +10,37 @@ itemName.focus();
 document.getElementById('addBtn').addEventListener('click', function () {
     let newItem = itemName.value.trim();
     let newPrice = parseFloat(itemPrice.value).toFixed(2);
-    let newItemAndPrice = [Number(newPrice), newItem];
+    let newItemAndPrice = { item: newItem, price: Number(newPrice) };
 
-    if (newItem && Number(newPrice)) {
+    if (newItem && newPrice >= 0) {
         shoppingListArr.push(newItemAndPrice);
         for (let i = 0; shoppingListArr[i]; i++) {
             var liElement = document.createElement('li');
             liElement.innerText = newItem + ', ' + newPrice + '€';
         }
         shoppingList.appendChild(liElement);
+        itemName.value = '';
+        itemPrice.value = '';
+        itemName.focus();
+    } else if (newItem == false && newPrice >= 0) {
+        alert('Lisää tuote.');
+        itemName.focus();
+    } else if (newItem && (newPrice < 0 || typeof newPrice != Number)) {
+        alert('Lisää hinta. (Käytä pelkästään numeroita!)')
+        itemPrice.value = '';
+        itemPrice.focus();
     } else {
         alert('Kirjoita tarvitsemasi tuote ja hinta.');
+        itemPrice.value = '';
+        itemName.focus();
     }
 
-    itemName.value = '';
-    itemPrice.value = '';
-    itemName.focus();
+    console.log(shoppingListArr);
 
-    let sortedArray = shoppingListArr.sort(function (a, b) {
-        return a[0] - b[0];
+    let sortedByPriceArr = shoppingListArr.sort(function (a, b) {
+        return a.price - b.price;
     });
-    console.log(sortedArray);
+    //console.log(sortedByPriceArr);
 });
 
 document.getElementById('sortByItemBtn').addEventListener('click', function () {
@@ -42,7 +52,7 @@ document.getElementById('sortByItemBtn').addEventListener('click', function () {
         b = list.getElementsByTagName("LI");
         for (i = 0; i < (b.length - 1); i++) {
             shouldSwitch = false;
-            if (b[i].innerHTML > b[i + 1].innerHTML) {
+            if (b[i].innerHTML.toUpperCase() > b[i + 1].innerHTML.toUpperCase()) {
                 shouldSwitch = true;
                 break;
             }
@@ -75,8 +85,16 @@ document.getElementById('sortByPriceBtn').addEventListener('click', function () 
     }
 });
 
-let input = document.getElementById('inputPrice');
-input.addEventListener('keyup', function (event) {
+let inputI = document.getElementById('inputItem');
+inputI.addEventListener('keyup', function (event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById('addBtn').click();
+    }
+});
+
+let inputP = document.getElementById('inputPrice');
+inputP.addEventListener('keyup', function (event) {
     if (event.keyCode === 13) {
         event.preventDefault();
         document.getElementById('addBtn').click();
