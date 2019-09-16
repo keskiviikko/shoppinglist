@@ -11,18 +11,22 @@
 
 <body>
     <header>
-        <h1>Ostoslista-sovellus</h1>
+        <h1>OSTOSLISTA</h1>
     </header>
 
     <div id="newItemDetails">
         <p>1) Kirjoita tarvitsemasi tuote<br>
-            2) Lisää tuote listalle painamalla Enter</p>
+            2) Lisää tuote listalle painamalla Enter tai Lisää</p>
         Tuote:
         <input type="text" id="inputItem" placeholder="kaksi banaania"><br>
         Hinta (euroa):
-        <input type="number" id="inputPrice" placeholder="1"><br>
+        <input type="number" id="inputPrice" placeholder="1">
+    </div>
+
+    <div id="buttons">
         <button id="addBtn">Lisää</button>
-        <button id="remove">Poista</button>
+        <button id="sortByItemBtn">Järjestä (A-Z)</button>
+        <button id="sortByPriceBtn">Järjestä (hinta)</button>
     </div>
 
     <div id="shoppingList">
@@ -31,7 +35,8 @@
     </div>
 
     <footer>
-        <p><a href="https://www.google.com/search?q=hedelm%C3%A4salaatti" target=#>Hedelmäsalaattireseptejä</a></p>
+        <a href="https://www.google.com/search?q=hedelm%C3%A4salaatti" target=#>Hedelmäsalaattireseptejä</a><br>
+        <a href="https://github.com/keskiviikko" target=#>OSTOSLISTA by keskiviikko</a>
     </footer>
 
     <script type="text/javascript" src="scripts/main.js"></script>

@@ -2,6 +2,7 @@
 html {
     font-family: 'Playfair Display', serif;
     text-align: center;
+    color: black;
 }
 
 body {
@@ -9,8 +10,8 @@ body {
     font-size: 20px;
 }
 
-h1, h2 {
-    color: black;
+h1 {
+    letter-spacing: 10px;
 }
 
 footer > p {
@@ -18,15 +19,37 @@ footer > p {
 }
 
 a {
+    font-size: 14px;
 	text-decoration: none;
 }
 
 a:hover {
-	text-decoration: underline;
+    font-size: 15px;
 }
 
 #newItemDetails {
     line-height: 150%;
+}
+
+#buttons {
+    margin-top: 30px;
+}
+
+button {
+    border: 1px solid #006b9c;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #006b9c;
+    color: white;
 }
 
 #shoppingList {
@@ -36,7 +59,7 @@ a:hover {
     text-align: center;
     border-style: double;
     display: block;
-    margin: 20px auto;
+    margin: 15px auto;
     width: 300px;
     background-color: #fffd8f;
 }
