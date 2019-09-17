@@ -7,11 +7,11 @@ let shoppingListArr = [];
 
 itemName.focus();
 
+// ADD NEW ITEM AND ITS PRICE
 document.getElementById('addBtn').addEventListener('click', function () {
     let newItem = itemName.value.trim();
     let newPrice = parseFloat(itemPrice.value).toFixed(2);
-    newPrice = Number(newPrice);
-    let newItemAndPrice = { item: newItem, price: newPrice };
+    let newItemAndPrice = { item: newItem, price: Number(newPrice) };
 
     if (newItem && newPrice >= 0) {
         shoppingListArr.push(newItemAndPrice);
@@ -37,15 +37,9 @@ document.getElementById('addBtn').addEventListener('click', function () {
     }
 
     console.log(shoppingListArr);
-
-    /*
-    let sortedByPriceArr = shoppingListArr.sort(function (a, b) {
-        return a.price - b.price;
-    });
-    console.log(sortedByPriceArr);
-    */
 });
 
+// SORT ITEMS ALPHABETICALLY
 document.getElementById('sortByItemBtn').addEventListener('click', function () {
     let list, i, switching, b, shouldSwitch;
     list = document.getElementById('list');
@@ -67,6 +61,7 @@ document.getElementById('sortByItemBtn').addEventListener('click', function () {
     }
 });
 
+// SORT ITEMS BY PRICE
 document.getElementById('sortByPriceBtn').addEventListener('click', function () {
     let list, i, switching, b, shouldSwitch;
     list = document.getElementById('list');
@@ -85,6 +80,28 @@ document.getElementById('sortByPriceBtn').addEventListener('click', function () 
             b[i].parentNode.insertBefore(b[i + 1], b[i]);
             switching = true;
         }
+    }
+    /*
+    let sortedByPriceArr = shoppingListArr.sort(function (a, b) {
+        return a.price - b.price;
+    });
+    console.log(sortedByPriceArr);
+    */
+});
+
+// REMOVE LAST ITEM
+document.getElementById('removeLastBtn').addEventListener('click', function () {
+    let list = document.getElementById('list');
+    if (list.hasChildNodes()) {
+        list.removeChild(list.lastChild);
+    }
+});
+
+// DELETE ALL ITEMS
+document.getElementById('deleteAllBtn').addEventListener('click', function () {
+    let list = document.getElementById('list');
+    while (list.hasChildNodes()) {
+        list.removeChild(list.firstChild);
     }
 });
 
