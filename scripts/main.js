@@ -17,6 +17,7 @@ document.getElementById('addBtn').addEventListener('click', function () {
         shoppingListArr.push(newItemAndPrice);
         for (let i = 0; shoppingListArr[i]; i++) {
             var liElement = document.createElement('li');
+            liElement.id = newPrice;
             liElement.innerText = newItem + ', ' + newPrice + '€';
         }
         shoppingList.appendChild(liElement);
@@ -27,7 +28,7 @@ document.getElementById('addBtn').addEventListener('click', function () {
         alert('Lisää tuote.');
         itemName.focus();
     } else if (newItem && (newPrice < 0 || typeof newPrice != Number)) {
-        alert('Lisää hinta. (Käytä pelkästään numeroita!)')
+        alert('Lisää hinta. Käytä pelkästään numeroita!')
         itemPrice.value = '';
         itemPrice.focus();
     } else {
@@ -35,8 +36,10 @@ document.getElementById('addBtn').addEventListener('click', function () {
         itemPrice.value = '';
         itemName.focus();
     }
-
-    console.log(shoppingListArr);
+    let sortedByPriceArr = shoppingListArr.sort(function (a, b) {
+        return a.price - b.price;
+    });
+    console.log(sortedByPriceArr);
 });
 
 // SORT ITEMS ALPHABETICALLY
@@ -46,7 +49,7 @@ document.getElementById('sortByItemBtn').addEventListener('click', function () {
     switching = true;
     while (switching) {
         switching = false;
-        b = list.getElementsByTagName("LI");
+        b = list.getElementsByTagName('LI');
         for (i = 0; i < (b.length - 1); i++) {
             shouldSwitch = false;
             if (b[i].innerHTML.toUpperCase() > b[i + 1].innerHTML.toUpperCase()) {
@@ -68,10 +71,10 @@ document.getElementById('sortByPriceBtn').addEventListener('click', function () 
     switching = true;
     while (switching) {
         switching = false;
-        b = list.getElementsByTagName("LI");
+        b = list.getElementsByTagName('LI');
         for (i = 0; i < (b.length - 1); i++) {
             shouldSwitch = false;
-            if (Number(b[i].innerHTML.replace(/[^0-9]/g, '')) > Number(b[i + 1].innerHTML.replace(/[^0-9]/g, ''))) {
+            if (Number(b[i].id) > Number(b[i + 1].id)) {
                 shouldSwitch = true;
                 break;
             }
@@ -81,12 +84,6 @@ document.getElementById('sortByPriceBtn').addEventListener('click', function () 
             switching = true;
         }
     }
-    /*
-    let sortedByPriceArr = shoppingListArr.sort(function (a, b) {
-        return a.price - b.price;
-    });
-    console.log(sortedByPriceArr);
-    */
 });
 
 // REMOVE LAST ITEM

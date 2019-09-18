@@ -58,6 +58,15 @@ button:hover {
     color: white;
 }
 
+#addBtn {
+    border: 1px solid #13a100;
+}
+
+#addBtn:hover {
+    background-color: #13a100;
+    color: white;
+}
+
 .remove {
     border: 1px solid #c00040;
     margin: 15px 2px;
