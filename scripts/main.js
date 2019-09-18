@@ -100,6 +100,7 @@ document.getElementById('deleteAllBtn').addEventListener('click', function () {
     while (list.hasChildNodes()) {
         list.removeChild(list.firstChild);
     }
+    shoppingListArr.length = 0;
 });
 
 let inputI = document.getElementById('inputItem');
