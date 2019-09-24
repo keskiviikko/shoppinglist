@@ -103,18 +103,15 @@ document.getElementById('deleteAllBtn').addEventListener('click', function () {
     shoppingListArr.length = 0;
 });
 
-let inputI = document.getElementById('inputItem');
-inputI.addEventListener('keyup', function (event) {
-    if (event.keyCode === 13) {
-        event.preventDefault();
-        document.getElementById('addBtn').click();
+function addReturnKeyPressHandlers() {
+    function clickAddBtn(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById('addBtn').click();
+        }
     }
-});
+    document.getElementById('inputItem').addEventListener('keyup', clickAddBtn);
+    document.getElementById('inputPrice').addEventListener('keyup', clickAddBtn);
+}
 
-let inputP = document.getElementById('inputPrice');
-inputP.addEventListener('keyup', function (event) {
-    if (event.keyCode === 13) {
-        event.preventDefault();
-        document.getElementById('addBtn').click();
-    }
-});
+addReturnKeyPressHandlers();
