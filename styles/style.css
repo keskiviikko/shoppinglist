@@ -19,18 +19,14 @@ h1 {
     display: inline;
 }
 
-header > a {
-    font-size: 11px;
-}
-
 a {
-    font-size: 16px;
+    font-size: 11px;
     text-decoration: none;
     color: black;
 }
 
 a:hover {
-    font-size: 17px;
+    font-size: 15px;
 }
 
 #newItemDetails {
