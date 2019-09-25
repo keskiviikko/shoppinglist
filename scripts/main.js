@@ -7,6 +7,15 @@ let shoppingListArr = [];
 
 itemName.focus();
 
+// UPDATE TOTAL PRICE
+function updateTotal() {
+    var total = shoppingListArr.reduce(function (cnt, o) { return cnt + o.price; }, 0);
+
+    document.getElementById('total').innerHTML = 'Yhteensä ' + parseFloat(total).toFixed(2) + '€';
+}
+
+updateTotal();
+
 // ADD NEW ITEM AND ITS PRICE
 document.getElementById('addBtn').addEventListener('click', function () {
     let newItem = itemName.value.trim();
@@ -42,13 +51,6 @@ document.getElementById('addBtn').addEventListener('click', function () {
     console.log(sortedByPriceArr);
     updateTotal();
 });
-
-// UPDATE TOTAL PRICE
-function updateTotal() {
-    var total = shoppingListArr.reduce(function (cnt, o) { return cnt + o.price; }, 0);
-
-    document.getElementById('total').innerHTML = 'Yhteensä ' + parseFloat(total).toFixed(2) + '€';
-};
 
 // SORT ITEMS ALPHABETICALLY
 document.getElementById('sortByItemBtn').addEventListener('click', function () {
@@ -112,6 +114,7 @@ document.getElementById('deleteAllBtn').addEventListener('click', function () {
     updateTotal();
 });
 
+// RETURN KEY
 function addReturnKeyPressHandlers() {
     function clickAddBtn(event) {
         if (event.keyCode === 13) {
