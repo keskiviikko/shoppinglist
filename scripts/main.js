@@ -40,7 +40,15 @@ document.getElementById('addBtn').addEventListener('click', function () {
         return a.price - b.price;
     });
     console.log(sortedByPriceArr);
+    updateTotal();
 });
+
+// UPDATE TOTAL PRICE
+function updateTotal() {
+    var total = shoppingListArr.reduce(function (cnt, o) { return cnt + o.price; }, 0);
+
+    document.getElementById('total').innerHTML = 'Yhteensä ' + parseFloat(total).toFixed(2) + '€';
+};
 
 // SORT ITEMS ALPHABETICALLY
 document.getElementById('sortByItemBtn').addEventListener('click', function () {
@@ -101,6 +109,7 @@ document.getElementById('deleteAllBtn').addEventListener('click', function () {
         list.removeChild(list.firstChild);
     }
     shoppingListArr.length = 0;
+    updateTotal();
 });
 
 function addReturnKeyPressHandlers() {

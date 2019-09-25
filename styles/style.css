@@ -85,6 +85,12 @@ button:hover {
     background-color: #fffd8f;
 }
 
+p#total {
+    font-size: 18px;
+    font-style: italic;
+    text-align: right;
+}
+
 #list {
     text-align: left;
 }
