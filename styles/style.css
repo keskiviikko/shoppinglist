@@ -19,6 +19,39 @@ h1 {
     display: inline;
 }
 
+.tooltip {
+    position: relative;
+    display: inline-block;
+    font-size: 15px;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 400px;
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    text-align: left;
+    border-radius: 6px;
+    padding: 10px 25px;
+    border: solid 1px black;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+  }
+
+  .tooltip:hover {
+      color: grey;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
 a {
     font-size: 11px;
     text-decoration: none;
@@ -97,6 +130,11 @@ p#total {
 
 ul {
     list-style: circle;
+}
+
+li:hover{
+    text-decoration: line-through;
+    color: #c00040;
 }
 
 footer {

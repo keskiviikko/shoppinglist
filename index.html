@@ -2,8 +2,8 @@
 <html>
 
 <head>
-    <title>Ostoslista</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping list</title>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="images/icon.jpg" />
     <link href="styles/style.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
@@ -12,34 +12,39 @@
 
 <body>
     <header>
-        <h1>OSTOSLISTA</h1><br>
+        <h1>SHÖPPINGLIST</h1><br>
         <a href="https://github.com/keskiviikko" target=#>by keskiviikko</a>
     </header>
 
     <div id="newItemDetails">
-        <p>1) Kirjoita tarvitsemasi tuote ja sen hinta<br>
-            2) Lisää tuote listalle painamalla Enter tai Lisää</p>
-        Tuote:
-        <input type="text" id="inputItem" placeholder="Lisää tuote"><br>
-        Hinta (euroa):
-        <input type="number" id="inputPrice" placeholder="Lisää hinta">
+        Item:
+        <input type="text" id="inputItem" placeholder="Add item"><br>
+        Price:
+        <input type="number" id="inputPrice" placeholder="Add price">
     </div>
 
     <div id="buttons">
-        <button id="addBtn">Lisää</button>
-        <button id="sortByItemBtn">Järjestä (A-Z)</button>
-        <button id="sortByPriceBtn">Järjestä (hinta)</button>
+        <button id="addBtn">Add</button>
+        <button id="sortByItemBtn">Sort (A-Z)</button>
+        <button id="sortByPriceBtn">Sort (price)</button>
     </div>
 
     <div id="shoppingList">
-        <p>Ostoslista</p>
+        <p>My Shopping List</p>
         <ul id="list"></ul>
         <p id="total"></p>
     </div>
 
+    <button class="remove" id="deleteAllBtn">Clear list</button><br>
+
     <footer>
-        <button class="remove" id="removeLastBtn">Poista alin</button>
-        <button class="remove" id="deleteAllBtn">Tyhjennä</button><br>
+        <div class="tooltip">Need help?
+            <span class="tooltiptext">
+                - You can add any item to the shopping list by clicking the Add button or by pressing the return key.<br>
+                - Remove items from the list by clicking them or clear the list by clicking the Clear list button.<br>
+                - You may also sort the list alphabetically or by price.
+            </span>
+        </div>
     </footer>
 
     <script type="text/javascript" src="scripts/main.js"></script>

@@ -11,7 +11,7 @@ itemName.focus();
 function updateTotal() {
     var total = shoppingListArr.reduce(function (cnt, o) { return cnt + o.price; }, 0);
 
-    document.getElementById('total').innerHTML = 'Yhteensä ' + parseFloat(total).toFixed(2) + '€';
+    document.getElementById('total').innerHTML = 'Total ' + parseFloat(total).toFixed(2);
 }
 
 updateTotal();
@@ -27,21 +27,26 @@ document.getElementById('addBtn').addEventListener('click', function () {
         for (let i = 0; shoppingListArr[i]; i++) {
             var liElement = document.createElement('li');
             liElement.id = newPrice;
-            liElement.innerText = newItem + ', ' + newPrice + '€';
+            liElement.innerText = newItem + ', ' + newPrice;
         }
         shoppingList.appendChild(liElement);
+
+        liElement.onclick = function () {
+            this.parentNode.removeChild(this);
+        }
+
         itemName.value = '';
         itemPrice.value = '';
         itemName.focus();
     } else if (newItem == false && newPrice >= 0) {
-        alert('Lisää tuote.');
+        alert('Item is missing.');
         itemName.focus();
     } else if (newItem && (newPrice < 0 || typeof newPrice != Number)) {
-        alert('Lisää hinta. Käytä pelkästään numeroita!')
+        alert('Price is missing or wrong. Use numbers only!')
         itemPrice.value = '';
         itemPrice.focus();
     } else {
-        alert('Kirjoita tarvitsemasi tuote ja hinta.');
+        alert('Item and price are missing.');
         itemPrice.value = '';
         itemName.focus();
     }
@@ -93,14 +98,6 @@ document.getElementById('sortByPriceBtn').addEventListener('click', function () 
             b[i].parentNode.insertBefore(b[i + 1], b[i]);
             switching = true;
         }
-    }
-});
-
-// REMOVE LAST ITEM
-document.getElementById('removeLastBtn').addEventListener('click', function () {
-    let list = document.getElementById('list');
-    if (list.hasChildNodes()) {
-        list.removeChild(list.lastChild);
     }
 });
 
