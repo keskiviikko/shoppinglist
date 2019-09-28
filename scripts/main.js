@@ -31,13 +31,22 @@ document.getElementById('addBtn').addEventListener('click', function () {
         }
         shoppingList.appendChild(liElement);
 
+        // DELETE SELECTED ITEM
+        // PROBLEM - DELETES MULTIPLE ITEMS FROM ARRAY IF SAME PRICE (will fix soon)
         liElement.onclick = function () {
             this.parentNode.removeChild(this);
+            shoppingListArr = shoppingListArr.filter(obj => obj.price != this.id);
+            updateTotal();
+            console.log(shoppingListArr);
         }
 
+        // RESET INPUT VALUES
         itemName.value = '';
         itemPrice.value = '';
         itemName.focus();
+        console.log(shoppingListArr);
+
+        // ERROR MESSAGES
     } else if (newItem == false && newPrice >= 0) {
         alert('Item is missing.');
         itemName.focus();
@@ -50,10 +59,7 @@ document.getElementById('addBtn').addEventListener('click', function () {
         itemPrice.value = '';
         itemName.focus();
     }
-    let sortedByPriceArr = shoppingListArr.sort(function (a, b) {
-        return a.price - b.price;
-    });
-    console.log(sortedByPriceArr);
+
     updateTotal();
 });
 
@@ -109,6 +115,7 @@ document.getElementById('deleteAllBtn').addEventListener('click', function () {
     }
     shoppingListArr.length = 0;
     updateTotal();
+    console.log(shoppingListArr);
 });
 
 // RETURN KEY
