@@ -32,10 +32,11 @@ document.getElementById('addBtn').addEventListener('click', function () {
         shoppingList.appendChild(liElement);
 
         // DELETE SELECTED ITEM
-        // PROBLEM - DELETES MULTIPLE ITEMS FROM ARRAY IF SAME PRICE (will fix soon)
+        // PROBLEM - DELETES MULTIPLE ITEMS FROM ARRAY IF SAME ITEM NAME
+        // e.g. Clicking 'Apple, 1.00' will delete all 'Apple' items
         liElement.onclick = function () {
             this.parentNode.removeChild(this);
-            shoppingListArr = shoppingListArr.filter(obj => obj.price != this.id);
+            shoppingListArr = shoppingListArr.filter(obj => obj.item != newItem);
             updateTotal();
             console.log(shoppingListArr);
         }
